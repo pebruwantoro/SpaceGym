@@ -14,10 +14,18 @@
 		8B6AAE462BFB8D7300D4F64F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AAE452BFB8D7300D4F64F /* ViewController.swift */; };
 		8B6AAE482BFB8D7400D4F64F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B6AAE472BFB8D7400D4F64F /* Assets.xcassets */; };
 		8B6AAE4B2BFB8D7400D4F64F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8B6AAE4A2BFB8D7400D4F64F /* Base */; };
+		8B6AAE532BFB8E1400D4F64F /* BluetoothConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AAE522BFB8E1400D4F64F /* BluetoothConnection.swift */; };
+		8B6AAE552BFB90CB00D4F64F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B6AAE542BFB90CB00D4F64F /* Info.plist */; };
+		8B6AAE6A2BFBA4F900D4F64F /* StartGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8B6AAE692BFBA4F900D4F64F /* StartGameScene.sks */; };
+		8B6AAE6E2BFBA53900D4F64F /* StartGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AAE6D2BFBA53900D4F64F /* StartGameScene.swift */; };
+		8B8DF7562BFBA93900B2A876 /* NextLevelScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8B8DF7552BFBA93900B2A876 /* NextLevelScene.sks */; };
+		8B8DF7582BFBA94900B2A876 /* NextLevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8DF7572BFBA94800B2A876 /* NextLevelScene.swift */; };
+		8B8DF75A2BFBB80C00B2A876 /* GameLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8DF7592BFBB80C00B2A876 /* GameLevel.swift */; };
+		8B8DF75C2BFBBFA400B2A876 /* FinishGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8B8DF75B2BFBBFA400B2A876 /* FinishGameScene.sks */; };
+		8B8DF75E2BFBC01B00B2A876 /* FinishGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8DF75D2BFBC01B00B2A876 /* FinishGameScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8B6AAE3A2BFB8D7300D4F64F /* SpaceGym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceGym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B6AAE3D2BFB8D7300D4F64F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B6AAE3F2BFB8D7300D4F64F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		8B6AAE412BFB8D7300D4F64F /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -26,6 +34,16 @@
 		8B6AAE472BFB8D7400D4F64F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B6AAE4A2BFB8D7400D4F64F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B6AAE4C2BFB8D7400D4F64F /* SpaceGym.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpaceGym.entitlements; sourceTree = "<group>"; };
+		8B6AAE522BFB8E1400D4F64F /* BluetoothConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConnection.swift; sourceTree = "<group>"; };
+		8B6AAE542BFB90CB00D4F64F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B6AAE682BFB92C400D4F64F /* SpaceGym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceGym.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B6AAE692BFBA4F900D4F64F /* StartGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartGameScene.sks; sourceTree = "<group>"; };
+		8B6AAE6D2BFBA53900D4F64F /* StartGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameScene.swift; sourceTree = "<group>"; };
+		8B8DF7552BFBA93900B2A876 /* NextLevelScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = NextLevelScene.sks; sourceTree = "<group>"; };
+		8B8DF7572BFBA94800B2A876 /* NextLevelScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextLevelScene.swift; sourceTree = "<group>"; };
+		8B8DF7592BFBB80C00B2A876 /* GameLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLevel.swift; sourceTree = "<group>"; };
+		8B8DF75B2BFBBFA400B2A876 /* FinishGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FinishGameScene.sks; sourceTree = "<group>"; };
+		8B8DF75D2BFBC01B00B2A876 /* FinishGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishGameScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,31 +61,72 @@
 			isa = PBXGroup;
 			children = (
 				8B6AAE3C2BFB8D7300D4F64F /* SpaceGym */,
-				8B6AAE3B2BFB8D7300D4F64F /* Products */,
+				8B6AAE682BFB92C400D4F64F /* SpaceGym.app */,
 			);
-			sourceTree = "<group>";
-		};
-		8B6AAE3B2BFB8D7300D4F64F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8B6AAE3A2BFB8D7300D4F64F /* SpaceGym.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		8B6AAE3C2BFB8D7300D4F64F /* SpaceGym */ = {
 			isa = PBXGroup;
 			children = (
+				8B6AAE542BFB90CB00D4F64F /* Info.plist */,
 				8B6AAE3D2BFB8D7300D4F64F /* AppDelegate.swift */,
-				8B6AAE3F2BFB8D7300D4F64F /* GameScene.sks */,
+				8B8DF76A2BFC617B00B2A876 /* Scene */,
 				8B6AAE412BFB8D7300D4F64F /* Actions.sks */,
-				8B6AAE432BFB8D7300D4F64F /* GameScene.swift */,
 				8B6AAE452BFB8D7300D4F64F /* ViewController.swift */,
 				8B6AAE472BFB8D7400D4F64F /* Assets.xcassets */,
 				8B6AAE492BFB8D7400D4F64F /* Main.storyboard */,
 				8B6AAE4C2BFB8D7400D4F64F /* SpaceGym.entitlements */,
+				8B6AAE522BFB8E1400D4F64F /* BluetoothConnection.swift */,
+				8B8DF7592BFBB80C00B2A876 /* GameLevel.swift */,
 			);
 			path = SpaceGym;
+			sourceTree = "<group>";
+		};
+		8B8DF7652BFC60BE00B2A876 /* StartGameScene */ = {
+			isa = PBXGroup;
+			children = (
+				8B6AAE692BFBA4F900D4F64F /* StartGameScene.sks */,
+				8B6AAE6D2BFBA53900D4F64F /* StartGameScene.swift */,
+			);
+			path = StartGameScene;
+			sourceTree = "<group>";
+		};
+		8B8DF7672BFC610800B2A876 /* GameScene */ = {
+			isa = PBXGroup;
+			children = (
+				8B6AAE3F2BFB8D7300D4F64F /* GameScene.sks */,
+				8B6AAE432BFB8D7300D4F64F /* GameScene.swift */,
+			);
+			path = GameScene;
+			sourceTree = "<group>";
+		};
+		8B8DF7682BFC611E00B2A876 /* FinishGameScene */ = {
+			isa = PBXGroup;
+			children = (
+				8B8DF75B2BFBBFA400B2A876 /* FinishGameScene.sks */,
+				8B8DF75D2BFBC01B00B2A876 /* FinishGameScene.swift */,
+			);
+			path = FinishGameScene;
+			sourceTree = "<group>";
+		};
+		8B8DF7692BFC612E00B2A876 /* NextLevelScene */ = {
+			isa = PBXGroup;
+			children = (
+				8B8DF7552BFBA93900B2A876 /* NextLevelScene.sks */,
+				8B8DF7572BFBA94800B2A876 /* NextLevelScene.swift */,
+			);
+			path = NextLevelScene;
+			sourceTree = "<group>";
+		};
+		8B8DF76A2BFC617B00B2A876 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				8B8DF7672BFC610800B2A876 /* GameScene */,
+				8B8DF7652BFC60BE00B2A876 /* StartGameScene */,
+				8B8DF7692BFC612E00B2A876 /* NextLevelScene */,
+				8B8DF7682BFC611E00B2A876 /* FinishGameScene */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,7 +146,7 @@
 			);
 			name = SpaceGym;
 			productName = SpaceGym;
-			productReference = 8B6AAE3A2BFB8D7300D4F64F /* SpaceGym.app */;
+			productReference = 8B6AAE682BFB92C400D4F64F /* SpaceGym.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -114,7 +173,7 @@
 				Base,
 			);
 			mainGroup = 8B6AAE312BFB8D7300D4F64F;
-			productRefGroup = 8B6AAE3B2BFB8D7300D4F64F /* Products */;
+			productRefGroup = 8B6AAE312BFB8D7300D4F64F;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -128,9 +187,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B8DF7562BFBA93900B2A876 /* NextLevelScene.sks in Resources */,
 				8B6AAE402BFB8D7300D4F64F /* GameScene.sks in Resources */,
 				8B6AAE482BFB8D7400D4F64F /* Assets.xcassets in Resources */,
+				8B8DF75C2BFBBFA400B2A876 /* FinishGameScene.sks in Resources */,
 				8B6AAE422BFB8D7300D4F64F /* Actions.sks in Resources */,
+				8B6AAE6A2BFBA4F900D4F64F /* StartGameScene.sks in Resources */,
+				8B6AAE552BFB90CB00D4F64F /* Info.plist in Resources */,
 				8B6AAE4B2BFB8D7400D4F64F /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,7 +206,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B6AAE462BFB8D7300D4F64F /* ViewController.swift in Sources */,
+				8B8DF75E2BFBC01B00B2A876 /* FinishGameScene.swift in Sources */,
 				8B6AAE442BFB8D7300D4F64F /* GameScene.swift in Sources */,
+				8B8DF75A2BFBB80C00B2A876 /* GameLevel.swift in Sources */,
+				8B6AAE6E2BFBA53900D4F64F /* StartGameScene.swift in Sources */,
+				8B6AAE532BFB8E1400D4F64F /* BluetoothConnection.swift in Sources */,
+				8B8DF7582BFBA94900B2A876 /* NextLevelScene.swift in Sources */,
 				8B6AAE3E2BFB8D7300D4F64F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +282,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSBluetoothWhileInUseUsageDescription = "";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -271,6 +340,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSBluetoothWhileInUseUsageDescription = "";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -292,6 +362,11 @@
 				DEVELOPMENT_TEAM = U5CZ6K98KV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpaceGym/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports-games";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use Bluetooth to connect to external devices.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use Bluetooth to connect to external devices.";
+				INFOPLIST_KEY_NSBluetoothWhileInUseUsageDescription = "We use Bluetooth to connect to external devices.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -299,6 +374,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pebruwantoro.SpaceGym;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -319,6 +395,11 @@
 				DEVELOPMENT_TEAM = U5CZ6K98KV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpaceGym/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports-games";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use Bluetooth to connect to external devices.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use Bluetooth to connect to external devices.";
+				INFOPLIST_KEY_NSBluetoothWhileInUseUsageDescription = "We use Bluetooth to connect to external devices.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -326,6 +407,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pebruwantoro.SpaceGym;
 				PRODUCT_NAME = "$(TARGET_NAME)";

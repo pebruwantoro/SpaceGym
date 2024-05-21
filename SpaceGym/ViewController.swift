@@ -8,13 +8,41 @@
 import Cocoa
 import SpriteKit
 import GameplayKit
+import CoreBluetooth
 
-class ViewController: NSViewController {
-
+class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, BluetoothManagerDelegate{
     @IBOutlet var skView: SKView!
+    @IBOutlet weak var tableView: NSTableView!
+    
+    var bluetoothManager: BluetoothManager!
+    var discoveredPeripherals: [CBPeripheral] = []
+    
+    func didUpdateDevices() {
+        discoveredPeripherals = bluetoothManager.discoveredPeripheral
+        tableView.reloadData()
+    }
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return discoveredPeripherals.count
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        guard let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DeviceCell"), owner: self) as? NSTableCellView else {
+            return nil
+        }
+        let peripheral = discoveredPeripherals[row]
+        cell.textField?.stringValue = peripheral.name ?? "Unknown device"
+        return cell
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        bluetoothManager = BluetoothManager()
+//        bluetoothManager.delegate = self
+//        tableView.dataSource = self
+//        tableView.delegate = self
+//        bluetoothManager.startScanning()
+        
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
@@ -34,10 +62,10 @@ class ViewController: NSViewController {
                 if let view = self.skView {
                     view.presentScene(sceneNode)
                     
-                    view.ignoresSiblingOrder = true
-                    
-                    view.showsFPS = true
-                    view.showsNodeCount = true
+//                    view.ignoresSiblingOrder = true
+//                    
+//                    view.showsFPS = true
+//                    view.showsNodeCount = true
                 }
             }
         }
