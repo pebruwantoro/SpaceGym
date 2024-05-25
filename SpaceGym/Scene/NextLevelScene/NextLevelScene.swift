@@ -9,7 +9,6 @@ import SpriteKit
 import GameplayKit
 
 class NextLevelScene: SKScene {
-    private var isGameStart = false
     private var count = 5
     private var countLabel: SKLabelNode!
     private var timer: Timer?
@@ -34,16 +33,31 @@ class NextLevelScene: SKScene {
     private func countDown() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
-            
-            if self.count > 0 {
-                self.countLabel.text = "\(self.count)"
-                self.count -= 1
-            } else {
-                self.isGameStart = true
-                transitionToNextScene()
-                self.timer?.invalidate()
-                self.timer = nil
+            if GameManager.shared.currentLevel < 7 {
+                if self.count > 0 {
+                    self.countLabel.text = "\(self.count)"
+                    self.count -= 1
+                } else {
+                    transitionToNextScene()
+                    self.timer?.invalidate()
+                    self.timer = nil
+                }
             }
+
+            if GameManager.shared.currentLevel == 7 {
+                finishGame()
+            }
+            
+            
+        }
+    }
+    
+    private func finishGame() {
+        if let scene = FinishGameScene(fileNamed: "FinishGameScene") {
+            scene.scaleMode = .aspectFill
+            scene.view?.showsFPS = false
+            scene.view?.showsNodeCount = false
+            self.view?.presentScene(scene)
         }
     }
 

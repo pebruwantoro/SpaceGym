@@ -30,7 +30,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case object7
         case object8
     }
-
+    
     private var lastUpdateTime : TimeInterval = 0
     private var player: SKNode?
     private var background: SKNode?
@@ -38,7 +38,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var playerMoveRigth = false
     private var playerMoveLeft = false
     private var isContinueNextLevel = false
-    private var isLastGame = false
     private var object1: SKNode?
     private var object2: SKNode?
     private var object3: SKNode?
@@ -55,13 +54,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var maxScore = 0
     private let rows = 20
     private let columns = 20
-    let b = BluetoothManager()
-   
-
+        let b = BluetoothManager()
+    private var dataGyro: [Double] = []
+        private var arrayGyro: [Double] = []
+    
+    
     
     override func sceneDidLoad() {
-        b.startScanning()
-        GameManager.shared.checkFirstLaunch()
         obstacles()
         self.lastUpdateTime = 0
         self.player = self.childNode(withName: "Player")
@@ -72,7 +71,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.bullet = self.childNode(withName: "Bullet")
         self.bullet?.physicsBody?.allowsRotation = false
         bulletMove()
-        
+    }
+    
+    override func didMove(to view: SKView) {
+        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -0.01)
     }
     
     override func keyDown(with event: NSEvent) {
@@ -109,7 +111,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private func levelLabel() {
         self.levelText = SKLabelNode(fontNamed: "Marker Felt")
-        self.levelText?.fontSize = 40        
+        self.levelText?.fontSize = 40
         self.levelText?.position = CGPoint(x: 1350, y: 750)
         self.levelText?.horizontalAlignmentMode = .right
         self.levelText?.zPosition = 2
@@ -125,14 +127,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private func getHitCountObject(object: HitObject)-> Int {
         switch object.objectName {
-            case "Object1": 1
-            case "Object2": 2
-            case "Object3": 3
-            case "Object4": 4
-            case "Object5": 5
-            case "Object6": 6
-            case "Object7": 7
-            case "Object8": 8
+        case "Object1": 1
+        case "Object2": 2
+        case "Object3": 3
+        case "Object4": 4
+        case "Object5": 5
+        case "Object6": 6
+        case "Object7": 7
+        case "Object8": 8
         default:
             0
         }
@@ -145,7 +147,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let yPositionMin = 100.00
         let spacing: CGFloat = 150
         let objectSize = CGSize(width: 10, height: 10)
-
+        
         for row in 0..<rows {
             for col in 0..<columns {
                 if xPositionMax >= xPositionMin + CGFloat(col) * (objectSize.width + spacing) && yPositionMax >= yPositionMin + CGFloat(row) * (objectSize.height + spacing) {
@@ -156,7 +158,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                             object.hitCount = getHitCountObject(object: object)
                             self.maxScore += object.hitCount
                             addChild(object)
-
+                            
                         } else {
                             let object = createObject(image: "Object\(self.level+1)", xPosition: xPositionMin + CGFloat(col) * (objectSize.width + spacing), yPosition: yPositionMin + CGFloat(row) * (objectSize.height + spacing))
                             object.objectName = object.name ?? ""
@@ -186,8 +188,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         objectNode.physicsBody?.categoryBitMask = PhysicsCategory.Object
         objectNode.physicsBody?.contactTestBitMask = PhysicsCategory.Bullet
         objectNode.physicsBody?.collisionBitMask = PhysicsCategory.None
-        objectNode.physicsBody?.affectedByGravity = false
-
+        objectNode.physicsBody?.affectedByGravity = true
         
         return objectNode
     }
@@ -215,7 +216,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private func bulletPhysicsBody() {
         physicsWorld.contactDelegate = self
-
+        
         if let bulletSize = self.bullet?.frame.size {
             self.bullet?.physicsBody = SKPhysicsBody(rectangleOf: bulletSize)
             self.bullet?.physicsBody?.categoryBitMask = PhysicsCategory.Bullet
@@ -229,7 +230,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let moveAction: SKAction
         let moveDistance: CGFloat = 10.0
         let maxWidth = CGFloat(((self.background?.frame.size.width ?? 0) / 2) - 200)
-       
+        
         switch direction {
         case .left:
             let newPosition = CGFloat(self.player?.position.x ?? 0) - moveDistance
@@ -253,7 +254,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         static let Bullet: UInt32 = 0b1
         static let Object: UInt32 = 0b10
     }
-
+    
     private func bulletDidCollideWithObject(object: HitObject) {
         object.hitCount -= 1
         if object.hitCount == 0 {
@@ -266,8 +267,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             case "Object6": score += 6
             case "Object7": score += 7
             case "Object8": score += 8
-        default:
-            score += 0
+            default:
+                score += 0
             }
             object.run(removalAnimation())
             self.scoreText?.text = "Score:\n \(score)"
@@ -276,7 +277,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
-
+    
     func removalAnimation() -> SKAction {
         let fadeOut = SKAction.fadeOut(withDuration: 0.2)
         let scaleDown = SKAction.scale(to: 0.0, duration: 0.2)
@@ -303,15 +304,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 bulletDidCollideWithObject(object: object)
             }
         }
-        
-        
     }
-
+    
     
     override func update(_ currentTime: TimeInterval) {
-//         Called before each frame is rendered
-//
-//         Initialize _lastUpdateTime if it has not already been
+        
+        print(self.physicsWorld.gravity.dy)
+        self.dataGyro = b.getDataGyroscopeFromDevice()
+        
         if (self.lastUpdateTime == 0) {
             self.lastUpdateTime = currentTime
         }
@@ -334,20 +334,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             movePlayer(direction: .right)
         }
         
-        if isContinueNextLevel && level <= 6 {
-            if let scene = NextLevelScene(fileNamed: "NextLevelScene") {
-                scene.scaleMode = .aspectFill
-                scene.view?.showsFPS = false
-                scene.view?.showsNodeCount = false
-                self.view?.presentScene(scene)
-                if level == 6 {
-                    self.isLastGame = true
-                }
+        if !dataGyro.isEmpty  {
+            if dataGyro[1] > 0 {
+                movePlayer(direction: .left)
+            }
+            
+            if dataGyro[1] < 0 {
+                movePlayer(direction: .right)
             }
         }
         
-        if isLastGame {
-            if let scene = FinishGameScene(fileNamed: "FinishGameScene") {
+        
+        if isContinueNextLevel && level < 7 {
+            self.physicsWorld.gravity.dy -= 0.01
+            if let scene = NextLevelScene(fileNamed: "NextLevelScene") {
                 scene.scaleMode = .aspectFill
                 scene.view?.showsFPS = false
                 scene.view?.showsNodeCount = false

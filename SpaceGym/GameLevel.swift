@@ -20,16 +20,4 @@ class GameManager {
             UserDefaults.standard.set(newValue, forKey: "currentLevel")
         }
     }
-    
-    func checkFirstLaunch() {
-        let hasLaunchedBefore = UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
-        if !hasLaunchedBefore{
-            clearLevelData()
-        }
-    }
-    
-    private func clearLevelData() {
-        UserDefaults.standard.removeObject(forKey: "currentLevel")
-        UserDefaults.standard.removeObject(forKey: "hasLaunchedBefore")
-    }
 }
